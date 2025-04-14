@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="pharmacy_store.controllers.MainController">
+    <VBox prefHeight="425.0" prefWidth="400.0">
+        <Button fx:id="storageButton" onAction="#switchToSceneMain" text="Back to main menu" textAlignment="CENTER" />
+        <TableView fx:id="medicineTable" xmlns:fx="http://javafx.com/fxml">
+            <columns>
+                <TableColumn fx:id="idColumn" text="ID" />
+                <TableColumn fx:id="nameColumn" text="Наименование" />
+                <TableColumn fx:id="categoryColumn" text="Категория товара"/>
+                <TableColumn fx:id="idCompanyProducerColumn" text="ID Производителя"/>
+                <TableColumn fx:id="quantityColumn" text="Кол-во, (шт.)"/>
+                <TableColumn fx:id="purchasePriceColumn" text="Закупочная цена" />
+                <TableColumn fx:id="sellPriceColumn" text="Цена продажи" />
+                <TableColumn fx:id="expiryDate" prefWidth="200.0" text="Окончание срока годности" />
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>

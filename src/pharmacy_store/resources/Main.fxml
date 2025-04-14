@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" minHeight="400.0" minWidth="400.0" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pharmacy_store.controllers.SceneController">
+   <HBox prefHeight="400.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+          <VBox alignment="CENTER_LEFT" spacing="20.0">
+              <Button fx:id="button" onAction="#switchToSceneStorage" prefHeight="30.0" prefWidth="90.0" text="To storage">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+              <Button prefHeight="30.0" prefWidth="90.0" text="To cash">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#switchToSceneCustomers" prefHeight="30.0" prefWidth="90.0" text="Customers" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+      <!--        <TableView fx:id="medicineTable" xmlns:fx="http://javafx.com/fxml">-->
+      <!--            <columns>-->
+      <!--                <TableColumn text="ID" fx:id="idColumn"/>-->
+      <!--                <TableColumn text="Наименование" fx:id="nameColumn"/>-->
+      <!--                <TableColumn prefWidth="200.0" text="Окончание срока годности" fx:id="expiryDate"/>-->
+      <!--            </columns>-->
+      <!--        </TableView>-->
+          </VBox>
+         <Label alignment="CENTER" prefHeight="403.0" prefWidth="311.0" text="Информационная система &quot;Аптека&quot;" textAlignment="JUSTIFY">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Label>
+      </children>
+   </HBox>
+</AnchorPane>
