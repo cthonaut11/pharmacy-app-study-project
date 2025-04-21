@@ -4,22 +4,29 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="pharmacy_store.controllers.MainController">
-    <VBox prefHeight="425.0" prefWidth="400.0">
-        <Button fx:id="storageButton" onAction="#switchToSceneMain" text="Back to main menu" textAlignment="CENTER" />
-        <TableView fx:id="medicineTable" xmlns:fx="http://javafx.com/fxml">
-            <columns>
-                <TableColumn fx:id="idColumn" text="ID" />
-                <TableColumn fx:id="nameColumn" text="Наименование" />
-                <TableColumn fx:id="categoryColumn" text="Категория товара"/>
-                <TableColumn fx:id="idCompanyProducerColumn" text="ID Производителя"/>
-                <TableColumn fx:id="quantityColumn" text="Кол-во, (шт.)"/>
-                <TableColumn fx:id="purchasePriceColumn" text="Закупочная цена" />
-                <TableColumn fx:id="sellPriceColumn" text="Цена продажи" />
-                <TableColumn fx:id="expiryDate" prefWidth="200.0" text="Окончание срока годности" />
-            </columns>
-        </TableView>
-    </VBox>
+<AnchorPane fx:id="root" prefHeight="527.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pharmacy_store.controllers.MainController">
+   <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="527.0" prefWidth="604.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+           <TableView fx:id="medicineTable" prefHeight="580.0" prefWidth="480.0">
+               <columns>
+                   <TableColumn fx:id="idColumn" text="ID" />
+                   <TableColumn fx:id="nameColumn" text="Наименование" />
+                   <TableColumn fx:id="categoryColumn" text="Категория товара" />
+                   <TableColumn fx:id="idCompanyProducerColumn" text="ID Производителя" />
+                   <TableColumn fx:id="quantityColumn" text="Кол-во, (шт.)" />
+                   <TableColumn fx:id="purchasePriceColumn" text="Закупочная цена" />
+                   <TableColumn fx:id="sellPriceColumn" text="Цена продажи" />
+                   <TableColumn fx:id="expiryDate" prefWidth="200.0" text="Окончание срока годности" />
+               </columns>
+           </TableView>
+          <VBox alignment="TOP_RIGHT" prefHeight="579.0" prefWidth="169.0" spacing="20.0">
+              <Button fx:id="storageButton" onAction="#switchToSceneMain" prefHeight="25.0" prefWidth="147.0" text="Back to main menu" textAlignment="CENTER" wrapText="true" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" text="Add new medicine" textAlignment="CENTER" wrapText="true" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="195.0" text="Delete medicine" textAlignment="CENTER" wrapText="true" />
+          </VBox>
+      </children>
+   </HBox>
 </AnchorPane>

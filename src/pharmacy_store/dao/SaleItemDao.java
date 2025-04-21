@@ -1,57 +1,57 @@
 package pharmacy_store.dao;
 
 import pharmacy_store.db.ConnectionManager;
-import pharmacy_store.entity.Customer;
+import pharmacy_store.entity.SaleItem;
 import pharmacy_store.exception.DaoException;
 
 import java.sql.*;
 
-public class CustomerDao {
+public class SaleItemDao {
 
-    public static final CustomerDao INSTANCE = new CustomerDao();
+    public static final SaleItemDao INSTANCE = new SaleItemDao();
     private static final String DELETE_SQL= """
-            DELETE FROM customer 
+            DELETE FROM sales_item
             WHERE id = ?
             """;
     private static final String SAVE_SQL= """
-            INSERT INTO customer (first_name, last_name, phone_number, discount)
+            INSERT INTO sales_item (id_sale, id_medicine, quantity, price)
             VALUES (?, ?, ?, ?)
             """;
-    private CustomerDao() {
+    private SaleItemDao() {
     }
 
-    public Customer save(Customer customer){
+    public SaleItem save(SaleItem saleItem){
         try (Connection connection = ConnectionManager.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SAVE_SQL, Statement.RETURN_GENERATED_KEYS)){
-            preparedStatement.setString(1, customer.getFirst_name());
-            preparedStatement.setString(2, customer.getLast_name());
-            preparedStatement.setString(3, customer.getPhoneNumber());
-            preparedStatement.setInt(4, customer.getDiscount());
+            preparedStatement.setInt(1, saleItem.getId());
+            preparedStatement.setInt(2, saleItem.getId_sale());
+            preparedStatement.setInt(3, saleItem.getId_medicine());
+            preparedStatement.setInt(4, saleItem.getQuantity());
+            preparedStatement.setDouble(5, saleItem.getPrice());
 
             preparedStatement.executeUpdate();
 
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
             if(generatedKeys.next()){
-                customer.setId(generatedKeys.getInt("id"));
+                saleItem.setId(generatedKeys.getInt("id"));
             }
-            return customer;
+            return saleItem;
         } catch (SQLException e) {
             throw new DaoException(e);
         }
     }
 
-    public boolean delete(int customerId) {
+    public boolean delete(int saleId) {
         try(Connection connection = ConnectionManager.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_SQL)){
-            preparedStatement.setInt(1, customerId);
+            preparedStatement.setInt(1, saleId);
             return preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
             throw new DaoException(e);
         }
     }
 
-    public static CustomerDao getInstance() {
+    public static SaleItemDao getInstance() {
         return INSTANCE;
     }
-
 }

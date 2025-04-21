@@ -17,7 +17,7 @@ public class DaoRunner {
         MedicineDao medicineDao = MedicineDao.getInstance();
         Medicine medicine = new Medicine();
 
-        medicine.setName("pivo");
+        medicine.setName("");
         medicine.setCategory("UIO");
         medicine.setId_company_producer(1);
         medicine.setQuantity(30);

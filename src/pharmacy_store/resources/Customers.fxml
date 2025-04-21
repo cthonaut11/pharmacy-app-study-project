@@ -4,19 +4,26 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="root" prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="pharmacy_store.controllers.CustomersController">
-    <VBox prefHeight="425.0" prefWidth="400.0">
-        <Button fx:id="storageButton" onAction="#switchToSceneMain" text="Back to main menu" textAlignment="CENTER" />
-        <TableView fx:id="customerTable" xmlns:fx="http://javafx.com/fxml">
-            <columns>
-                <TableColumn fx:id="idColumn" text="ID" />
-                <TableColumn fx:id="first_nameColumn" text="Имя" />
-                <TableColumn fx:id="last_nameColumn"  text="Фамилия" />
-                <TableColumn fx:id="phone_numberColumn" text="Номер телефона" />
-                <TableColumn fx:id="discountColumn" text="Скидка (%)" />
-            </columns>
-        </TableView>
-    </VBox>
+<AnchorPane fx:id="root" prefHeight="527.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pharmacy_store.controllers.CustomersController">
+   <HBox prefHeight="527.0" prefWidth="604.0">
+      <children>
+           <TableView fx:id="customerTable" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="480.0">
+               <columns>
+                   <TableColumn fx:id="idColumn" text="ID" />
+                   <TableColumn fx:id="first_nameColumn" text="Имя" />
+                   <TableColumn fx:id="last_nameColumn" text="Фамилия" />
+                   <TableColumn fx:id="phone_numberColumn" text="Номер телефона" />
+                   <TableColumn fx:id="discountColumn" text="Скидка (%)" />
+               </columns>
+           </TableView>
+          <VBox alignment="TOP_RIGHT" prefHeight="425.0" prefWidth="400.0" spacing="20.0">
+              <Button fx:id="storageButton" onAction="#switchToSceneMain" prefHeight="25.0" prefWidth="128.0" text="Back to main menu" textAlignment="CENTER" wrapText="true" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="133.0" text="Add new customer" wrapText="true" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="136.0" text="Delete customer" wrapText="true" />
+          </VBox>
+      </children>
+   </HBox>
 </AnchorPane>

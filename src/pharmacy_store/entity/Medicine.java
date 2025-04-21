@@ -30,7 +30,6 @@ public class Medicine {
     public int getId() {
         return id.get();
     }
-
     public void setId(int id) {
         this.id.set(id);
     }
@@ -38,7 +37,6 @@ public class Medicine {
     public String getName() {
         return name.get();
     }
-
     public void setName(String name) {
         this.name.set(name);
     }
@@ -46,7 +44,6 @@ public class Medicine {
     public String getCategory() {
         return category.get();
     }
-
     public void setCategory(String category) {
         this.category.set(category);
     }
@@ -54,7 +51,6 @@ public class Medicine {
     public int getId_company_producer() {
         return id_company_producer.get();
     }
-
     public void setId_company_producer(int id_company_producer) {
         this.id_company_producer.set(id_company_producer);
     }
@@ -62,7 +58,6 @@ public class Medicine {
     public int getQuantity() {
         return quantity.get();
     }
-
     public void setQuantity(int quantity) {
         this.quantity.set(quantity);
     }
@@ -70,7 +65,6 @@ public class Medicine {
     public double getPurchase_price() {
         return purchase_price.get();
     }
-
     public void setPurchase_price(double purchase_price) {
         this.purchase_price.set(purchase_price);
     }
@@ -78,7 +72,6 @@ public class Medicine {
     public double getSelling_price() {
         return selling_price.get();
     }
-
     public void setSelling_price(double selling_price) {
         this.selling_price.set(selling_price);
     }
@@ -86,7 +79,6 @@ public class Medicine {
     public LocalDate getExpiry_date() {
         return expiry_date.get();
     }
-
     public void setExpiry_date(LocalDate expiry_date) {
         this.expiry_date.set(expiry_date);
     }

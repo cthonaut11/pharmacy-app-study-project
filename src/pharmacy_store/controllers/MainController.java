@@ -30,7 +30,7 @@ public class MainController {
     public AnchorPane root;
 
 
-    @FXML private Button button;
+//    @FXML private Button button;
     @FXML private Button storageButton;
 
     public void switchToSceneMain(ActionEvent event) throws IOException {
