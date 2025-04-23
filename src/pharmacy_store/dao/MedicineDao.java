@@ -5,6 +5,8 @@ import pharmacy_store.entity.Medicine;
 import pharmacy_store.exception.DaoException;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MedicineDao {
 
@@ -13,10 +15,45 @@ public class MedicineDao {
             DELETE FROM medicine
             WHERE id = ?
             """;
+
+    private static final String FIND_BY_ID_SQL= """
+            Select id, name, category, id_company_producer, quantity, purchase_price, selling_price, expiry_date
+            from medicine
+            where id = ?
+            """;
+
     private static final String SAVE_SQL= """
             INSERT INTO medicine (name, category, id_company_producer, quantity, purchase_price, selling_price, expiry_date)
             VALUES (?, ?, ?, ?, ?, ?, ?)
             """;
+
+    public List<Medicine> getAllMedicine() throws SQLException {
+        String sql = """
+                SELECT *
+                FROM medicine
+                """;
+        List<Medicine> medicines = new ArrayList<>();
+
+        try (Connection connection = ConnectionManager.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Medicine medicine = new Medicine();
+                medicine.setId(resultSet.getInt("id"));
+                medicine.setName(resultSet.getString("name"));
+                medicine.setCategory(resultSet.getString("category"));
+                medicine.setId_company_producer(resultSet.getInt("id_company_producer"));
+                medicine.setQuantity(resultSet.getInt("quantity"));
+                medicine.setPurchase_price(resultSet.getDouble("purchase_price"));
+                medicine.setSelling_price(resultSet.getDouble("selling_price"));
+                medicine.setExpiry_date(resultSet.getDate("expiry_date").toLocalDate());
+                medicines.add(medicine);
+            }
+        }
+        return medicines;
+    }
+
+
 
     private MedicineDao() {
     }
@@ -51,6 +88,32 @@ public class MedicineDao {
             return preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
             throw new DaoException(e);
+        }
+    }
+
+    public Medicine findById(int medicineId) {
+        try(Connection connection = ConnectionManager.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(FIND_BY_ID_SQL)){
+            preparedStatement.setInt(1, medicineId);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Medicine medicine = null;
+            if(resultSet.next()){
+                medicine = new Medicine();
+                medicine.setId(resultSet.getInt("id"));
+                medicine.setName(resultSet.getString("name"));
+                medicine.setCategory(resultSet.getString("category"));
+                medicine.setId_company_producer(resultSet.getInt("id_company_producer"));
+                medicine.setQuantity(resultSet.getInt("quantity"));
+                medicine.setPurchase_price(resultSet.getDouble("purchase_price"));
+                medicine.setSelling_price(resultSet.getDouble("selling_price"));
+                medicine.setExpiry_date(resultSet.getDate("expiry_date").toLocalDate());
+            }
+
+            return medicine;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 

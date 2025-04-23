@@ -20,7 +20,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-              <Button prefHeight="30.0" prefWidth="90.0" text="To cash">
+              <Button onAction="#switchToCash" prefHeight="30.0" prefWidth="90.0" text="To cash">
                <font>
                   <Font size="14.0" />
                </font>
@@ -30,13 +30,6 @@
                   <Font size="14.0" />
                </font>
             </Button>
-      <!--        <TableView fx:id="medicineTable" xmlns:fx="http://javafx.com/fxml">-->
-      <!--            <columns>-->
-      <!--                <TableColumn text="ID" fx:id="idColumn"/>-->
-      <!--                <TableColumn text="Наименование" fx:id="nameColumn"/>-->
-      <!--                <TableColumn prefWidth="200.0" text="Окончание срока годности" fx:id="expiryDate"/>-->
-      <!--            </columns>-->
-      <!--        </TableView>-->
           </VBox>
          <Label alignment="CENTER" prefHeight="403.0" prefWidth="311.0" text="Информационная система &quot;Аптека&quot;" textAlignment="JUSTIFY">
             <font>

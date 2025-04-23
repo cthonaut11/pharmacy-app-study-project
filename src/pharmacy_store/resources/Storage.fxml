@@ -24,8 +24,8 @@
            </TableView>
           <VBox alignment="TOP_RIGHT" prefHeight="579.0" prefWidth="169.0" spacing="20.0">
               <Button fx:id="storageButton" onAction="#switchToSceneMain" prefHeight="25.0" prefWidth="147.0" text="Back to main menu" textAlignment="CENTER" wrapText="true" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" text="Add new medicine" textAlignment="CENTER" wrapText="true" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="195.0" text="Delete medicine" textAlignment="CENTER" wrapText="true" />
+            <Button mnemonicParsing="false" onAction="#addNewMedicine" prefHeight="25.0" prefWidth="166.0" text="Add new medicine" textAlignment="CENTER" wrapText="true" />
+            <Button mnemonicParsing="false" onAction="#deleteMedicine" prefHeight="25.0" prefWidth="195.0" text="Delete medicine" textAlignment="CENTER" wrapText="true" />
           </VBox>
       </children>
    </HBox>

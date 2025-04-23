@@ -23,10 +23,16 @@ public class SaleDao {
     public Sale save(Sale sale){
         try (Connection connection = ConnectionManager.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SAVE_SQL, Statement.RETURN_GENERATED_KEYS)){
-            preparedStatement.setInt(1, sale.getId());
-            preparedStatement.setInt(2, sale.getId_customer());
-            preparedStatement.setDouble(3, sale.getTotal_cost());
-            preparedStatement.setDate(4, Date.valueOf(sale.getDate()));
+            //preparedStatement.setInt(1, sale.getId());
+
+            if(sale.getId_customer() != null){
+                preparedStatement.setInt(1, sale.getId_customer());
+            }else{
+                preparedStatement.setNull(1, java.sql.Types.INTEGER);
+            }
+            preparedStatement.setInt(1, sale.getId_customer());
+            preparedStatement.setDouble(2, sale.getTotal_cost());
+            preparedStatement.setDate(3, Date.valueOf(sale.getDate()));
 
             preparedStatement.executeUpdate();
 

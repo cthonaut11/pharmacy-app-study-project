@@ -61,4 +61,15 @@ public class Customer {
     public IntegerProperty discountProperty() {
         return discount;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+               "id=" + id +
+               ", first_name=" + first_name +
+               ", last_name=" + last_name +
+               ", phoneNumber=" + phoneNumber +
+               ", discount=" + discount +
+               '}';
+    }
 }

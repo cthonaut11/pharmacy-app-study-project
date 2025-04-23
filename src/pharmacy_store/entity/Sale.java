@@ -24,10 +24,10 @@ public class Sale {
     }
     public void setId(int id) {this.id.set(id);}
 
-    public int getId_customer() {
+    public Integer getId_customer() {
         return id_customer.get();
     }
-    public void setId_customer(int id_customer) {this.id_customer.set(id_customer);}
+    public void setId_customer(Integer id_customer) {this.id_customer.set(id_customer);}
 
     public double getTotal_cost() {
         return total_cost.get();
