@@ -12,10 +12,12 @@ public class Customer {
     private final StringProperty phoneNumber = new SimpleStringProperty();
     private final IntegerProperty discount = new SimpleIntegerProperty();
 
+    public Customer() {
+    }
+
     public int getId() {
         return id.get();
     }
-
     public void setId(int id) {
         this.id.set(id);
     }
@@ -23,19 +25,16 @@ public class Customer {
     public String getFirst_name() {
         return first_name.get();
     }
-
     public void setFirst_name(String first_name) {
         this.first_name.set(first_name);
     }
 
     public void setLast_name(String last_name) {this.last_name.set(last_name);}
-
     public String getLast_name() {return last_name.get();}
 
     public String getPhoneNumber() {
         return phoneNumber.get();
     }
-
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber.set(phoneNumber);
     }
@@ -43,7 +42,6 @@ public class Customer {
     public int getDiscount() {
         return discount.get();
     }
-
     public void setDiscount(int discount) {
         this.discount.set(discount);
     }

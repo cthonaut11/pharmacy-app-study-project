@@ -100,16 +100,6 @@ public class CustomersController {
         }
     }
 
-    private void handleDeletionError(DaoException e, Customer customer) {
-        String errorMessage;
-        if (e.getCause() instanceof java.sql.SQLIntegrityConstraintViolationException) {
-            errorMessage = "Невозможно удалить клиента - есть связанные продажи";
-        } else {
-            errorMessage = "Ошибка базы данных: " + e.getMessage();
-        }
-        showAlert("Ошибка", errorMessage, Alert.AlertType.ERROR);
-    }
-
     @FXML
     private void addNewCustomer() {
         // Создаем диалоговое окно
@@ -179,6 +169,16 @@ public class CustomersController {
                 showAlert("Ошибка", "Не удалось сохранить клиента: " + e.getMessage(), Alert.AlertType.ERROR);
             }
         });
+    }
+
+    private void handleDeletionError(DaoException e, Customer customer) {
+        String errorMessage;
+        if (e.getCause() instanceof java.sql.SQLIntegrityConstraintViolationException) {
+            errorMessage = "Невозможно удалить клиента - есть связанные продажи";
+        } else {
+            errorMessage = "Ошибка базы данных: " + e.getMessage();
+        }
+        showAlert("Ошибка", errorMessage, Alert.AlertType.ERROR);
     }
 
     private void showAlert(String title, String message, Alert.AlertType type) {

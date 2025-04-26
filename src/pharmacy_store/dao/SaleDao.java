@@ -25,10 +25,10 @@ public class SaleDao {
              PreparedStatement preparedStatement = connection.prepareStatement(SAVE_SQL, Statement.RETURN_GENERATED_KEYS)){
             //preparedStatement.setInt(1, sale.getId());
 
-            if(sale.getId_customer() != null){
+            if(sale.getId_customer() != null && sale.getId_customer() > 0){
                 preparedStatement.setInt(1, sale.getId_customer());
             }else{
-                preparedStatement.setNull(1, java.sql.Types.INTEGER);
+                preparedStatement.setNull(1, Types.INTEGER);
             }
             preparedStatement.setInt(1, sale.getId_customer());
             preparedStatement.setDouble(2, sale.getTotal_cost());

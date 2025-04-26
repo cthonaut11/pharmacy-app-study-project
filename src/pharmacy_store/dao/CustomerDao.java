@@ -12,7 +12,7 @@ public class CustomerDao {
 
     public static final CustomerDao INSTANCE = new CustomerDao();
     private static final String DELETE_SQL= """
-            DELETE FROM customer 
+            DELETE FROM customer
             WHERE id = ?
             """;
     private static final String SAVE_SQL= """

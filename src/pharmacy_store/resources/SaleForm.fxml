@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="root" prefHeight="527.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pharmacy_store.controllers.SaleController">
+   <Button fx:id="storageButton" layoutX="508.0" mnemonicParsing="false" onAction="#switchToSceneMain" prefHeight="46.0" prefWidth="96.0" text="Back to main menu" textAlignment="CENTER" wrapText="true" />
+    <VBox spacing="10" xmlns="http://javafx.com/fxml">
+        <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Оформление продажи" />
+
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Label text="Клиент:" />
+            <ComboBox fx:id="customerCombo" prefWidth="200" />
+        </HBox>
+
+        <TableView fx:id="cartTable" prefHeight="200">
+            <columns>
+                <TableColumn fx:id="medicineColumn" prefWidth="150" text="Товар" />
+                <TableColumn fx:id="quantityColumn" prefWidth="80" text="Кол-во" />
+                <TableColumn fx:id="priceColumn" prefWidth="100" text="Цена" />
+                <TableColumn fx:id="sumColumn" prefWidth="100" text="Сумма" />
+            </columns>
+        </TableView>
+
+        <HBox alignment="CENTER_RIGHT" spacing="10">
+            <Label style="-fx-font-weight: bold;" text="Итого:" />
+            <Label fx:id="totalLabel" style="-fx-font-weight: bold;" text="0.00 руб." />
+        </HBox>
+
+        <HBox spacing="10">
+            <Button onAction="#addToCart" prefWidth="120" text="Добавить товар" />
+            <Button onAction="#completeSale" prefWidth="120" style="-fx-base: #4CAF50;" text="Оформить продажу" />
+        </HBox>
+    </VBox>
+</AnchorPane>

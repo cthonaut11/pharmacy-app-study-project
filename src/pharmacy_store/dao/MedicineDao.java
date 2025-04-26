@@ -27,6 +27,12 @@ public class MedicineDao {
             VALUES (?, ?, ?, ?, ?, ?, ?)
             """;
 
+    private static final String UPDATE_SQL = """
+            UPDATE medicine 
+            SET quantity = ?
+            where id = ?
+            """;
+
     public List<Medicine> getAllMedicine() throws SQLException {
         String sql = """
                 SELECT *
@@ -56,6 +62,22 @@ public class MedicineDao {
 
 
     private MedicineDao() {
+    }
+
+    public Medicine update(Medicine medicine){
+        try (Connection connection = ConnectionManager.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_SQL)){
+            preparedStatement.setInt(1, medicine.getQuantity());
+            preparedStatement.setInt(2, medicine.getId());
+
+            preparedStatement.executeUpdate();
+
+            return medicine;
+
+        } catch (SQLException e) {
+            throw new DaoException(e);
+        }
+
     }
 
     public Medicine save(Medicine medicine){
